@@ -255,8 +255,8 @@ def LBT_compression(X, rise_ratio = 0.5):
 
         CRs.append(TbeXq/dctbpp(Yr, 8))
 
-    Optimum_S = s_values[np.argmin(CRs)]
-    Optimum_CR = CRs[np.argmin(CRs)]
+    Optimum_S = s_values[np.argmax(CRs)]
+    Optimum_CR = CRs[np.argmax(CRs)]
     Pf, Pr = pot_ii(8,Optimum_S) #filter with different s
 
     #pre filtering
@@ -277,7 +277,7 @@ def LBT_compression(X, rise_ratio = 0.5):
     Zqp[t,:] = colxfm(Zqp[t,:], Pr.T)
     print(f'optimum CR for LBT is:{Optimum_CR}')
     std_error = np.std(Zqp - X)
-    return Optimum_CR, Zqp
+    return Optimum_CR, Zqp, Yr
 
 
 
