@@ -277,7 +277,7 @@ def LBT_compression(X, rise_ratio = 0.5):
     Zqp[t,:] = colxfm(Zqp[t,:], Pr.T)
     print(f'optimum CR for LBT is:{Optimum_CR}')
     std_error = np.std(Zqp - X)
-    return Optimum_CR, Zqp, Yr
+    return Optimum_CR, Zqp, Yr, std_error
 
 
 
